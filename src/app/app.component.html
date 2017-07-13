@@ -1,0 +1,29 @@
+<div class="uk-container">
+  <br><br>
+    <b><p>{{statement}}</p></b>
+    <div [ngSwitch]="statement">
+        <div class="uk-alert-success" uk-alert *ngSwitchCase="'YES'">
+        <a class="uk-alert-close" uk-close></a>
+        <p>You clicked YES, Thank you!</p>
+        </div>
+
+        <div class="uk-alert-danger" uk-alert *ngSwitchCase="'NO'">
+        <a class="uk-alert-close" uk-close></a>
+        <p>You clicked NO, I am not happy!</p>
+        </div>
+    </div>
+
+
+    <br>
+  <button (click)="showCustomDialog()" class="uk-button uk-button-secondary">Custom Alert</button>
+
+</div>
+
+
+<app-dialog [(visible)]="showDialog" >
+  <h3>Confirm</h3>
+  <hr>
+  <p><b>{{alertText}}</b></p>
+  <hr>
+  <button class="uk-button uk-button-default uk-button-small" (click)="executeNo()">No</button> <button class="uk-button uk-button-primary uk-button-small" (click)="executeYes()">Yes</button>
+</app-dialog>
